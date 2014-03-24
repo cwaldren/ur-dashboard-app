@@ -1,11 +1,10 @@
 {
   "manifest_version": 2,
   "name": "UR Dashboard",
-  "description": "Displays essential",
+  "description": "Displays personal information from Blackboard.",
   "version": "0.1",
   "permissions": [
-    "http://api.wunderground.com/api/",
-    "http://autocomplete.wunderground.com/api"
+    "*://my.rochester.edu/*/*"
   ],
   "background": {
     "scripts": ["js/vendor/angular.min.js"]
