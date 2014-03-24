@@ -6,6 +6,7 @@ angular.module('dashboardApp', ['ngRoute'])
 
 .controller("LoginController", function($scope, $location, dashStorage) {
     $scope.isStudent = dashStorage.get('isStudent');
+    $scope.rememberMe = (dashStorage.get('rememberMe') === 'yes');
 
     $scope.proceedToLogin = function() {
       dashStorage.put('isStudent', 'yes');
@@ -15,6 +16,19 @@ angular.module('dashboardApp', ['ngRoute'])
     $scope.uninstall = function() {
       chrome.management.uninstallSelf();
     }
+
+
+   $scope.updateRememberMe = function() {
+      $scope.rememberMe = !$scope.rememberMe;
+      if ($scope.rememberMe) {
+        dashStorage.put('rememberMe', 'yes');
+      } else {
+        dashStorage.put('rememberMe', 'no');
+      }
+
+
+   }
+ 
 })
 
 .config(function($routeProvider) {
@@ -35,7 +49,7 @@ angular.module('dashboardApp', ['ngRoute'])
     return {
         get: function(key) {
             var item = localStorage.getItem(key);
-            return item ? window.atob(item) : null;
+            return item ? window.atob(item) : false;
         },
 
         put: function(key, value) {
@@ -43,3 +57,4 @@ angular.module('dashboardApp', ['ngRoute'])
         }
     }
 })
+

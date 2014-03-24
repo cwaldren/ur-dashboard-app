@@ -32,6 +32,21 @@ header {
     text-align: center;
 }
 
+@media all and (max-width:599px){
+    body {
+        background:#fff;
+    }
+}
+
+/*
+@media all and (min-width:600px){
+    body{
+       background: url('chrome-extension://__MSG_@@extension_id__/images/rochester.jpg');
+        background-position-x: -256px;
+    }
+}
+*/
+
 h2 {
     font-family: 'RobotoThinItalic';
     font-size: 22pt;

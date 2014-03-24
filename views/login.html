@@ -8,14 +8,14 @@
 </div>
 
 <div id="loginForm" ng-if="isStudent">
-    <form class="pure-form">
+    <ng-form class="pure-form">
         <fieldset class="pure-group">
-            <input type="text" class="pure-input-2-3" placeholder="NetID">
-            <input type="password" class="pure-input-2-3" placeholder="Password">
+            <input type="text" class="pure-input-2-3" placeholder="NetID" required>
+            <input type="password" class="pure-input-2-3" placeholder="Password" required>
 
         </fieldset>
         <label for="terms" class="pure-checkbox">
-            <input id="terms" type="checkbox"> Remember Me
+            <input id="terms" type="checkbox" ng-model="rememberMe" ng-change="updateRememberMe()"> Remember Me
         </label>
 
 
