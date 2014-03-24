@@ -4,7 +4,10 @@
   "description": "Displays personal information from Blackboard.",
   "version": "0.1",
   "permissions": [
-    "*://my.rochester.edu/*/*"
+    "*://my.rochester.edu/*",
+    "*://ecard.sequoiars.com/*",
+    "storage",
+    "management"
   ],
   "background": {
     "scripts": ["js/vendor/angular.min.js"]

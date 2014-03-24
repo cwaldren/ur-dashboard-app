@@ -9,3 +9,65 @@
 ng\:form {
   display: block;
 }
+
+@font-face {
+  font-family: 'RobotoLight';
+  src: url('chrome-extension://__MSG_@@extension_id__/fonts/Roboto-Light.ttf');
+}
+@font-face {
+  font-family: 'RobotoThin';
+  src: url('chrome-extension://__MSG_@@extension_id__/fonts/Roboto-Thin.ttf');
+}
+@font-face {
+  font-family: 'RobotoThinItalic';
+  src: url('chrome-extension://__MSG_@@extension_id__/fonts/Roboto-ThinItalic.ttf');
+}
+
+header h1{
+   font-family: 'RobotoThin';
+   font-size: 50pt;
+}
+
+header {
+    text-align: center;
+}
+
+h2 {
+    font-family: 'RobotoThinItalic';
+    font-size: 22pt;
+}
+
+#first-time-content {
+    text-align: center;
+}
+
+#loginForm {
+    font-family: 'RobotoThin';
+    margin-left: 25%;
+}
+
+/* pure buttons */
+.button-success,
+.button-error,
+.button-warning,
+.button-secondary {
+    color: white;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.button-success {
+    background: rgb(28, 184, 65); /* this is a green */
+}
+
+.button-error {
+    background: rgb(202, 60, 60); /* this is a maroon */
+}
+
+.button-warning {
+    background: rgb(223, 117, 20); /* this is an orange */
+}
+
+.button-secondary {
+    background: rgb(66, 184, 221); /* this is a light blue */
+}
