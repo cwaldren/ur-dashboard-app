@@ -56,11 +56,15 @@ h2 {
     text-align: center;
 }
 
-#loginForm {
+#login-form {
     font-family: 'RobotoThin';
     margin-left: 25%;
 }
 
+#login-loader {
+  width: 35px;
+  margin: 0 auto;
+}
 /* pure buttons */
 .button-success,
 .button-error,

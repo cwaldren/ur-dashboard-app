@@ -1,0 +1,22 @@
+<header>
+<h1>Welcome to UR Dashboard</h1>
+</header>
+
+
+<div id="login-form">
+    <ng-form class="pure-form" name="loginForm">
+        <fieldset class="pure-group">
+            <input type="text" class="pure-input-2-3" placeholder="NetID" ng-model="netID" required>
+            <input type="password" class="pure-input-2-3" placeholder="Password" ng-model="password" required ng-enter="login()">
+
+        </fieldset>
+        <label for="terms" class="pure-checkbox">
+            <input id="terms" type="checkbox" ng-model="rememberMe" ng-change="updateRememberMe()"> Automatically Login
+        </label>
+        <button type="submit" class="pure-button pure-input-2-3 pure-button-primary" ng-show="!attemptingLogin" ng-click="login()">Sign in</button>
+    </form>
+
+    
+</div>
+
+ <div loader id="login-loader" class="animated" loader-color="#000000" ng-show="attemptingLogin"></div>
