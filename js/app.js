@@ -6,11 +6,15 @@ angular.module('dashboardApp', ['ngRoute'])
   $routeProvider
     .when('/wallet', {
       templateUrl: 'views/wallet.html', 
-      controller: 'WalletController'
+      controller: 'WalletCtrl'
+    })
+    .when('/login', {
+      templateUrl: 'views/login.html',
+      controller: 'LoginCtrl'
     })
     .when('/', {
-      templateUrl: 'views/login.html',
-      controller: 'LoginController'
+      templateUrl: 'views/firstTime.html',
+      controller: 'FirstTimeCtrl'
     })
     .otherwise({redirectTo: '/'});
 })

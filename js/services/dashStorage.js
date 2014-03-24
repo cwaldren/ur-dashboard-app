@@ -4,12 +4,11 @@ angular.module('dashboardApp')
 
     return {
         get: function(key) {
-             var item = JSON.parse(localStorage.getItem(key));
-             return (item == null ? false : window.atob(item));
+            return JSON.parse(localStorage.getItem(key));
         },
 
         put: function(key, value) {
-            localStorage.setItem(key, JSON.stringify(window.btoa(value)));
+            localStorage.setItem(key, JSON.stringify(value));
         }
 
     }
