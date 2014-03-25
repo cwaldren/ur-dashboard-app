@@ -15,6 +15,7 @@
     }
 
     $scope.uninstall = function() {
+        localStorage.clear();
         chrome.management.uninstallSelf();
     }
 
