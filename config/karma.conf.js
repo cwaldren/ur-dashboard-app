@@ -3,17 +3,15 @@ module.exports = function(config){
     basePath : '../',
 
     files : [
-      'app/js/vendor/angular/angular.js',
-      'app/js/vendor/angular/angular-*.js',
+      'app/js/vendor/angular/angular.min.js',
+      'app/js/vendor/angular/angular-*.min.js',
       'test/lib/angular/angular-mocks.js',
       'app/js/**/*.js',
       'app/js/*.js',
       'test/unit/**/*.js'
     ],
 
-    exclude: [
-      'app/js/vendor/angular/*.min.js'
-    ],
+
 
     autoWatch : true,
 
@@ -24,7 +22,6 @@ module.exports = function(config){
     plugins : [
             'karma-junit-reporter',
             'karma-chrome-launcher',
-            'karma-firefox-launcher',
             'karma-jasmine'
             ],
 
