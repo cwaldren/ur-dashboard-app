@@ -43,8 +43,6 @@ header {
     html { 
       background: url('chrome-extension://__MSG_@@extension_id__/images/rochester.jpg') no-repeat center center fixed; 
       -webkit-background-size: cover;
-      -moz-background-size: cover;
-      -o-background-size: cover;
       background-size: cover;
     }
 }
