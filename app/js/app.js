@@ -12,11 +12,11 @@ angular.module('dashboardApp', ['ngRoute'])
       templateUrl: 'views/login.html',
       controller: 'LoginCtrl'
     })
-    .when('/', {
+    .when('/first-time', {
       templateUrl: 'views/firstTime.html',
       controller: 'FirstTimeCtrl'
     })
-    .otherwise({redirectTo: '/'});
+    .otherwise({redirectTo: '/first-time'});
 })
 
 
