@@ -18,9 +18,11 @@ angular.module('dashboardApp')
                 }
 
                 $http({
+                    withCredentials:true,
                     url: blackboardURLs.login,
                     method: "POST",
-                    data: postData
+                    data: postData,
+                     headers: {'Content-Type': 'application/x-www-form-urlencoded'}
                 }).success(function(response) {
                     var loggedIn = (response.indexOf('topframe.logout.label') !== -1);
                     deferred.resolve({error: !loggedIn});
