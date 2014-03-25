@@ -11,12 +11,14 @@
 
         </fieldset>
         <label for="terms" class="pure-checkbox">
-            <input id="terms" type="checkbox" ng-model="rememberMe" ng-change="updateRememberMe()"> Automatically Login
+            <input id="terms" type="checkbox" ng-model="autoLogin" ng-change="updateAutoLogin()"> Automatically Login
         </label>
         <button type="submit" class="pure-button pure-input-2-3 pure-button-primary" ng-show="!attemptingLogin" ng-click="login()">Sign in</button>
     </form>
 
-    
+    <div id="login-form-error" ng-show="loginStatus.error && !attemptingLogin">
+        <p>{{loginStatus.error}}</p>
+    </div>
 </div>
 
- <div loader id="login-loader" class="animated" loader-color="#000000" ng-show="attemptingLogin"></div>
+ <div loader id="login-loader" class="animated" loader-color="#000000" ng-show="loginStatus.attemptingLogin"></div>

@@ -61,9 +61,15 @@ h2 {
     margin-left: 25%;
 }
 
+#login-form-error {
+    color: red;
+    font-size: 20pt;
+}
+
 #login-loader {
   width: 35px;
   margin: 0 auto;
+  margin-top:10px;
 }
 /* pure buttons */
 .button-success,

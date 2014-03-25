@@ -1,16 +1,55 @@
 angular.module('dashboardApp')
 
-.controller("LoginCtrl", function($scope, $location, dashStorage) {
+.controller("LoginCtrl", function($scope, $location, dashStorage, blackboard) {
    
-    $scope.rememberMe = dashStorage.get('rememberMe');
-    $scope.attemptingLogin = false;
+    $scope.autoLogin = dashStorage.getUserPrefs().autoLogin;
+   
+    $scope.userCreds  = dashStorage.getBlackboardCreds();
+    $scope.loginStatus = {
+        attemptingLogin: false,
+        error: false
+    }
+    
+    //If the user has chosen to autologin, send them to the wallet
+    //if ($scope.autoLogin) $location.path('/wallet');
+    
+    //Else, lets see if they have a valid saved netID
+    $scope.netID = $scope.userCreds.netID;
 
-    $scope.updateRememberMe = function() {
-        dashStorage.put('rememberMe', $scope.rememberMe);
+    $scope.updateAutoLogin = function() {
+        dashStorage.setUserPref('autoLogin', $scope.autoLogin);
     }
     
     $scope.login = function() {
         if (!$scope.loginForm.$valid) return;
-        $scope.attemptingLogin = true;
+
+        var promise = blackboard.login({
+            netID: $scope.netID, 
+            password: $scope.password
+        });
+
+
+        $scope.loginStatus.attemptingLogin = true;
+
+        promise.then(function(result) {
+            if (result.error) {
+                $scope.loginStatus.error = "Invalid Blackboard credentials.";
+            } else {
+                var creds = {
+                    netID: $scope.netID,
+                    password: $scope.autoLogin ? $scope.password : null
+                }
+                dashStorage.setBlackboardCreds(creds);
+            }
+        }, function(error) {
+             $scope.loginStatus.error = error.error; 
+        })
+
+        promise['finally'](function() {
+             $scope.loginStatus.attemptingLogin = false;
+        })
+
+       
+
     }
-});
+})
