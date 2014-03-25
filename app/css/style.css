@@ -38,14 +38,15 @@ header {
     }
 }
 
-/*
+
 @media all and (min-width:600px){
-    body{
-       background: url('chrome-extension://__MSG_@@extension_id__/images/rochester.jpg');
-        background-position-x: -256px;
+    html { 
+      background: url('chrome-extension://__MSG_@@extension_id__/images/rochester.jpg') no-repeat center center fixed; 
+      -webkit-background-size: cover;
+      background-size: cover;
     }
 }
-*/
+
 
 h2 {
     font-family: 'RobotoThinItalic';
