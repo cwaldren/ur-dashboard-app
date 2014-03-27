@@ -40,6 +40,7 @@ angular.module('dashboardApp')
                     password: $scope.autoLogin ? $scope.password : null
                 }
                 dashStorage.setBlackboardCreds(creds);
+                $scope.loginStatus.error="success"
             }
         }, function(error) {
              $scope.loginStatus.error = error.error; 

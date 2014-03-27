@@ -15,6 +15,11 @@ ng\:form {
   font-family: 'RobotoLight';
   src: url('chrome-extension://__MSG_@@extension_id__/fonts/Roboto-Light.ttf');
 }
+
+@font-face {
+  font-family: 'RobotoMedium';
+  src: url('chrome-extension://__MSG_@@extension_id__/fonts/Roboto-Medium.ttf');
+}
 @font-face {
   font-family: 'RobotoThin';
   src: url('chrome-extension://__MSG_@@extension_id__/fonts/Roboto-Thin.ttf');
@@ -34,6 +39,11 @@ header {
 }
 
 
+
+.windows8 .wBall .wInnerBall{
+      background: #000;
+}
+
 h2 {
     font-family: 'RobotoThinItalic';
     font-size: 22pt;
@@ -51,12 +61,13 @@ h2 {
 #login-form-error {
     color: red;
     font-size: 20pt;
+    font-family: 'RobotoMedium';
 }
 
 #login-loader {
   width: 35px;
   margin: 0 auto;
-  margin-top:15px;
+  margin-top:20px;
 }
 /* pure buttons */
 .button-success,
