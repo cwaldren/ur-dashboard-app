@@ -28,6 +28,10 @@ ng\:form {
   font-family: 'RobotoThinItalic';
   src: url('chrome-extension://__MSG_@@extension_id__/fonts/Roboto-ThinItalic.ttf');
 }
+@font-face {
+  font-family: 'RobotoCondensedLight';
+  src: url('chrome-extension://__MSG_@@extension_id__/fonts/RobotoCondensed-Light.ttf');
+}
 
 header h1{
    font-family: 'RobotoThin';
@@ -69,6 +73,25 @@ h2 {
   margin: 0 auto;
   margin-top:20px;
 }
+
+.wallet {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: #72AFBA;
+}
+
+.wallet a {
+  color: #0E3133;
+  font-size: 70pt;
+  font-family: 'RobotoCondensedLight';
+}
+
+.wallet .funds {
+  text-align: center;
+  margin-top: 15%;
+}
+
 /* pure buttons */
 .button-success,
 .button-error,

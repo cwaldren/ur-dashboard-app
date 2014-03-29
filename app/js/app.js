@@ -4,6 +4,10 @@ angular.module('dashboardApp', ['ngRoute'])
 /* ROUTES */
 .config(function($routeProvider) {
   $routeProvider
+    .when('/dispatcher', {
+      templateUrl: 'views/dispatcher.html',
+      controller: 'DispatcherCtrl'
+    })
     .when('/wallet', {
       templateUrl: 'views/wallet.html', 
       controller: 'WalletCtrl'
@@ -16,7 +20,8 @@ angular.module('dashboardApp', ['ngRoute'])
       templateUrl: 'views/firstTime.html',
       controller: 'FirstTimeCtrl'
     })
-    .otherwise({redirectTo: '/first-time'});
+   
+    .otherwise({redirectTo: '/dispatcher'});
 })
 
 

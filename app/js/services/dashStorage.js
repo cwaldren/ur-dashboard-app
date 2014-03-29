@@ -28,7 +28,15 @@ angular.module('dashboardApp')
             prefs[pref] = val;
             localStorage.setItem('userPreferences', JSON.stringify(prefs));
 
-        } 
+        },
+
+        getFunds : function() {
+            return JSON.parse(localStorage.getItem('funds'));
+        },
+
+        setFunds: function(funds) {
+            localStorage.setItem('funds', JSON.stringify(funds));
+        }
 
 
 
