@@ -5,52 +5,45 @@ angular.module('dashboardApp')
     $scope.autoLogin = dashStorage.getUserPrefs().autoLogin;
    
     $scope.userCreds  = dashStorage.getBlackboardCreds();
+    
+    $scope.netID = $scope.userCreds.netID;
+    
     $scope.loginStatus = {
         attemptingLogin: false,
         error: false
     }
     
-    //If the user has chosen to autologin, send them to the wallet
-    //if ($scope.autoLogin) $location.path('/wallet');
-    
-    //Else, lets see if they have a valid saved netID
-    $scope.netID = $scope.userCreds.netID;
+   
 
     $scope.updateAutoLogin = function() {
         dashStorage.setUserPref('autoLogin', $scope.autoLogin);
     }
     
     $scope.login = function() {
+
         if (!$scope.loginForm.$valid) return;
 
-        var promise = blackboard.login({
-            netID: $scope.netID, 
-            password: $scope.password
-        });
-
-
         $scope.loginStatus.attemptingLogin = true;
+    
+        var creds = {
+            netID: $scope.netID,
+            password: $scope.password
+        }
 
-        promise.then(function(result) {
-            if (result.error) {
-                $scope.loginStatus.error = "Invalid Blackboard credentials.";
-            } else {
-                var creds = {
-                    netID: $scope.netID,
-                    password: $scope.autoLogin ? $scope.password : null
-                }
-                dashStorage.setBlackboardCreds(creds);
-                $scope.loginStatus.error="success"
-            }
+        blackboard.login(creds)
+
+        .then(function(result) {
+            //if they don't want autologin, let's not store their password
+            if (!$scope.autoLogin) creds.password = null;
+            dashStorage.setBlackboardCreds(creds);
+
         }, function(error) {
-             $scope.loginStatus.error = error.error; 
+            $scope.loginStatus.error = error.msg;
         })
-
-        promise['finally'](function() {
-             $scope.loginStatus.attemptingLogin = false;
+        
+        .finally(function() {
+            $scope.loginStatus.attemptingLogin = false;
         })
-
-       
 
     }
 })
