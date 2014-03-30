@@ -14,8 +14,8 @@ angular.module('dashboardApp')
     function parseFunds(data) {
         var json = angular.fromJson(data);
         return {
-            uros:      json.d._ItemList[0].BalanceInDollarsStr.replace(/\s+/g, ''),
-            declining: json.d._ItemList[1].BalanceInDollarsStr.replace(/\s+/g, '')
+            uros:      json.d._ItemList[0].BalanceInDollarsStr.replace(/\s+/g, '').replace(/\$/, '€'),
+            declining: json.d._ItemList[1].BalanceInDollarsStr.replace(/\s+/g, '').replace(/\$/, 'Đ')
         }
     }
 
