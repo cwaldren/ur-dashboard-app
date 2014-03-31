@@ -1,4 +1,11 @@
-ur-dashboard-app
+"UR" Dashboard
 ================
 
-A chrome app for aggregating blackboard/sequoia/other stuff. We aim to have it running on mobile as well. 
+_A Chrome app for aggregating content from BlackBoard, WebWork, Sequioa, and other services._
+
+###Planned Features
+* Homework and grade notifications from BlackBoard
+* School email Widget
+* Notifications for new WebWork/Sapling/etc. assignments
+* View and add funds to Declining and URos balanaces
+* ...and more!
